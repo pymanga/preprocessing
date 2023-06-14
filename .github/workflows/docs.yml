@@ -25,7 +25,7 @@ jobs:
 
 
       # install all dependencies (including pdoc)
-      - run: pip install -r requirements.txt
+      - run: pip install pdoc #-r requirements.txt
       # build your documentation into docs/.
       - run: pdoc --docformat google -o ./docs ../pyMANGA/
 
