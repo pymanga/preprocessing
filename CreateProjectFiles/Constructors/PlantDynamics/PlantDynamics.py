@@ -13,7 +13,7 @@ class PlantDynamics:
         return keywords
 
     def setModule(self, keywords):
-        if self.module_name == "Default":
+        if self.module_name == "SimpleTest":
             self.setDefault()
         if self.module_name == "Bettina":
             self.setBettina(keywords)
@@ -26,7 +26,7 @@ class PlantDynamics:
         return self.module
 
     def setDefault(self):
-        self.module = E.type('Default')
+        self.module = E.type('SimpleTest')
 
     def setBettina(self, keywords):
         self.module = E.type(keywords['type'])
