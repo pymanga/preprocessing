@@ -19,14 +19,14 @@ class PlantDynamics:
             self.setBettina(keywords)
         if self.module_name == "Kiwi":
             self.setKiwi(keywords)
-        if self.module_name == "BettinaNetwork":
+        if self.module_name == "NetworkBettina":
             self.setBettinaNetwork(keywords)
 
     def getModule(self):
         return self.module
 
     def setDefault(self):
-        self.module = E.type('SimpleTest')
+        self.module = E.plant_dynamics(E.type('SimpleTest'))
 
     def setBettina(self, keywords):
         self.module = E.type(keywords['type'])
@@ -35,5 +35,9 @@ class PlantDynamics:
         pass
 
     def setBettinaNetwork(self, keywords):
-        pass
+        self.module = E.plant_dynamics(
+            E.type(keywords['type']),
+            E.f_growth(keywords['f_growth']),
+            E.variant(keywords['variant']))
+
 

@@ -51,4 +51,12 @@ class Population:
         )
 
     def setGroupFromFile(self, keywords):
-        pass
+        self.module = E.group(
+            E.name(keywords['name']),
+            E.species(keywords['species']),
+            E.distribution(
+                E.type(keywords['type']),
+                E.n_recruitment_per_step(keywords['n_recruitment_per_step']),
+                E.filename(keywords['filename'])
+                )
+            )

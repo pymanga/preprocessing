@@ -24,6 +24,8 @@ class Belowground:
             self.setFixedSalinity(keywords)
         if self.module_name == "SymmetricZOI":
             self.setSZoi(keywords)
+        if self.module_name == "NetworkFixedSalinity":
+            self.setNetworkFixedSalinity(keywords)
 
     def getModule(self):
         return self.module
@@ -35,6 +37,14 @@ class Belowground:
     def setFixedSalinity(self, keywords):
         self.module = E.belowground(
                         E.type(keywords['type']),
+                        E.min_x(keywords['min_x']),
+                        E.max_x(keywords['max_x']),
+                        E.salinity(keywords['salinity'])
+                    )
+    def setNetworkFixedSalinity(self, keywords):
+        self.module = E.belowground(
+                        E.type(keywords['type']),
+                        E.f_radius(keywords['f_radius']),
                         E.min_x(keywords['min_x']),
                         E.max_x(keywords['max_x']),
                         E.salinity(keywords['salinity'])
