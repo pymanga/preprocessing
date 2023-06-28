@@ -15,13 +15,6 @@ class Mortality:
     def setModule(self, keywords):
         if self.module_name == "NoGrowth":
             self.setNoGrowth(keywords)
-        if self.module_name == "Bettina":
-            self.setBettina(keywords)
-        if self.module_name == "Kiwi":
-            self.setKiwi(keywords)
-        if self.module_name == "BettinaNetwork":
-            self.setBettinaNetwork(keywords)
-
     def getModule(self):
         return self.module
 

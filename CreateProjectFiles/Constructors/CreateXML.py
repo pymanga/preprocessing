@@ -29,37 +29,47 @@ class CreateXML:
     def setModules(self, bg_keywords, ag_keywords, pd_keywords, mt_keywords, pop_keywords,
                    tl_keywords, op_keywords, geom_tags, grow_tags, param_tags, netw_tags):
         # Set Below-ground module
-        bg = Belowground("FixedSalinity")
         if not bg_keywords:
+            bg = Belowground("SimpleTest")
             bg_keywords = bg.getKeywordExample()
+        else:
+            bg = Belowground(bg_keywords["type"])
         bg.setModule(bg_keywords)
         bg_module = bg.getModule()
 
         # Set Above-ground module
-        ag = Aboveground("SimpleAsymmetricZOI")
         if not ag_keywords:
+            ag = Aboveground("SimpleTest")
             ag_keywords = ag.getKeywordExample()
+        else:
+            ag = Aboveground(ag_keywords["type"])
         ag.setModule(ag_keywords)
         ag_module = ag.getModule()
 
         # Set plant dynamics module
-        pd = PlantDynamics("Bettina")
         if not pd_keywords:
+            pd = PlantDynamics("SimpleTest")
             pd_keywords = pd.getKeywordExample()
+        else:
+            pd = PlantDynamics(pd_keywords["type"])
         pd.setModule(pd_keywords)
         pd_module = pd.getModule()
 
         # Set mortality
-        mt = Mortality("NoGrowth")
         if not mt_keywords:
+            mt = Mortality("NoGrowth")
             mt_keywords = mt.getKeywordExample()
+        else:
+            mt = Mortality(mt_keywords["mortality"])
         mt.setModule(mt_keywords)
         mt_module = mt.getModule()
 
         # Set population
-        pop = Population("Random")
         if not pop_keywords:
+            pop = Population("Random")
             pop_keywords = pop.getKeywordExample()
+        else:
+            pop = Population(pop_keywords["type"])
         pop.setModule(pop_keywords)
         pop_module = pop.getModule()
 

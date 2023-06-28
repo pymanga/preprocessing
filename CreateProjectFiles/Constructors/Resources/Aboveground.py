@@ -16,7 +16,7 @@ class Aboveground:
         return keywords
 
     def setModule(self, keywords):
-        if self.module_name == "Default":
+        if self.module_name == "SimpleTest":
             self.setDefault()
         if self.module_name == "SimpleAsymmetricZOI":
             self.setAZoi(keywords)
@@ -26,7 +26,7 @@ class Aboveground:
 
     def setDefault(self):
         self.module = E.aboveground(
-            E.type('Default'))
+            E.type('SimpleTest'))
 
     def setAZoi(self, keywords):
         self.module = E.aboveground(
