@@ -63,6 +63,7 @@ class CreateXML:
             mt = Mortality(mt_keywords["mortality"])
         mt.setModule(mt_keywords)
         mt_module = mt.getModule()
+        pd_module.append(mt_module)
 
         # Set population
         if not pop_keywords:
@@ -103,10 +104,8 @@ class CreateXML:
                     ag_module,
                     bg_module,
                     ),
-                E.plant_dynamics(
-                    pd_module,
-                    mt_module
-                ),
+            pd_module,
+            #mt_module,
                 E.population(pop_module),
                 tl_module,
                 op_module,
